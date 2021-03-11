@@ -7,7 +7,6 @@ steps:
   args: ['echo', 'debut du test maven']
   args: ['mvn', 'test']
   timeout: 100s 
- steps:
  - name: 'gcr.io/cloud-builders/docker'
    entrypoint: 'bash'
    args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
