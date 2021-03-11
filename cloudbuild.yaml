@@ -17,15 +17,9 @@ steps:
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
 - name: node:latest
-  entrypoint: 'bash'
-  args: ['cd' 'jsproject']
-- name: node:latest
-  entrypoint: 'npm'
-  args: ['install']
-- name: node:latest
-  entrypoint: 'npm'
-  args: ['run', 'build']
-  timeout: 100s
+  args: ['bash', '-c', 'cd jsproject']
+  args: ['npm', 'install']
+  args: ['npm', 'run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
