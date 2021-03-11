@@ -16,7 +16,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
-
 - name: node:latest
   entrypoint: bash
   args: ['cd' 'jsproject']
@@ -38,4 +37,3 @@ steps:
   entrypoint: 'bash'
   args: ['cd', 'jsproject']
   args: ['-c', 'docker push valentinabrivard/javascriptimages:1.0.1']
-
