@@ -26,10 +26,8 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   dir: 'jsproject'
-  args: ['cd', 'jsproject']
   args: ['-c', 'docker build -t valentinabrivard/javascriptimages:1.0.1 .']
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   dir: 'jsproject'
-  args: ['cd', 'jsproject']
   args: ['-c', 'docker push valentinabrivard/javascriptimages:1.0.1']
