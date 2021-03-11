@@ -8,7 +8,10 @@ steps:
   args: ['mvn', 'test']
   timeout: 100s 
 - name: 'gcr.io/cloud-builders/docker'
+  args: ['echo', 'debut login dockerhub']
   args: ['login', '-u', 'valentinabrivard', '-p', 'b1817c9d-33ae-4963-8d72-dfd1091280f1']
+  args: ['echo', 'debut build docker']
   args: ['build', '-t', 'valentinabrivard/javaimages:1.0.1', '.']
+  args: ['echo', 'début push docker']
   args: ['push', 'valentinabrivard/javaimages:1.0.1']
   timeout: 10s
