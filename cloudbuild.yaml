@@ -7,3 +7,6 @@ steps:
   args: ['echo', 'debut du test maven']
   args: ['mvn', 'test']
   timeout: 100s 
+- name: 'ubuntu'
+  args: ['docker info']
+  timeout: 10s
