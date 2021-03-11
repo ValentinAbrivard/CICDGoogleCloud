@@ -8,9 +8,9 @@ steps:
   args: ['mvn', 'test']
   timeout: 100s 
 - name: 'node:latest'
-  args: ['echo', 'debut du build js']
-  args: ['cd', 'jsproject']
-  args: ['npm', 'run', 'test']
+  args: ['npm', 'run']
+  args: ['npm', 'build']
+  args: ['echo', 'hey', 'node']
   timeout: 100s 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
