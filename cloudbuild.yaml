@@ -1,6 +1,7 @@
 steps:
-- name: 'test'
+- name: 'maven:latest'
   args: ['sleep', '10']
+  args: ['mvn clean install -D skipTests'
   timeout: 500s
-- name: 'test'
+- name: 'ubuntu'
   args: ['echo', 'hello world, after 600s']
