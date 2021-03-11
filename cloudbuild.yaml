@@ -1,5 +1,5 @@
 steps:
-- name: 'maven:latest'
+- name: 'maven'
   args: ['sleep', '10']
   args: ['mvn clean install -D skipTests'
   timeout: 500s
