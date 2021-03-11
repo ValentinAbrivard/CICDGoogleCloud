@@ -1,15 +1,33 @@
-#
-# Build stage
-#
-FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
+#FROM openjdk:15.0.2-slim
 
+#ARG JAR_FILE=target/*.jar
+#COPY ${JAR_FILE} app.jar
+
+#EXPOSE 8080
+
+#ENTRYPOINT ["java", \
+#            "-jar", \
+#            "-Dfile.encoding=UTF-8", \
+#            "-Duser.timezone=GMT", \
+#            "-Djava.security.egd=file:/dev/./urandom -jar", \
+#            "app.jar"]
 #
-# Package stage
-#
-FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/demo-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
+FROM node:latest
+
+# Create app directory
+WORKDIR /usr/src/app
+
+ENV PATH="/node/src"
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+
+
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/demo.jar"]
+CMD [ "node", "server.js" ]
