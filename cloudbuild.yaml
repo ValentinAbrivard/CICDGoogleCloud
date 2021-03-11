@@ -16,10 +16,16 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
-- name: 'node:latest'
-  args: ['npm', 'run']
-  args: ['npm', 'build']
-  args: ['echo', 'hey', 'node']
+
+- name: node:latest
+  entrypoint: bash
+  args: ['cd' 'jsproject']
+- name: node:latest
+  entrypoint: npm
+  args: ['install']
+- name: node:latest
+  entrypoint: npm
+  args: ['run', 'build']
   timeout: 100s
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
