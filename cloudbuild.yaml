@@ -6,12 +6,7 @@ steps:
 - name: 'maven:latest'
   args: ['echo', 'debut du test maven']
   args: ['mvn', 'test']
-  timeout: 100s 
-- name: 'node:latest'
-  args: ['npm', 'run']
-  args: ['npm', 'build']
-  args: ['echo', 'hey', 'node']
-  timeout: 100s 
+  timeout: 100s  
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
@@ -21,6 +16,11 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
+- name: 'node:latest'
+  args: ['npm', 'run']
+  args: ['npm', 'build']
+  args: ['echo', 'hey', 'node']
+  timeout: 100s
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
