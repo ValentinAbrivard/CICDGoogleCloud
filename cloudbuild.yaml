@@ -8,10 +8,10 @@ steps:
   args: ['mvn', 'test']
   timeout: 100s 
 - name: 'node:latest'
- args: ['echo', 'debut du build js']
- args: ['cd', 'jsproject']
- args: ['npm', 'run', 'test']
- timeout: 100s 
+  args: ['echo', 'debut du build js']
+  args: ['cd', 'jsproject']
+  args: ['npm', 'run', 'test']
+  timeout: 100s 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
