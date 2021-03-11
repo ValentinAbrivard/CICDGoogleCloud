@@ -7,6 +7,9 @@ steps:
   args: ['echo', 'debut du test maven']
   args: ['mvn', 'test']
   timeout: 100s 
-- name: 'ubuntu'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['docker info']
+  args: ['docker', 'login', '-u', 'valentinabrivard', '-p', 'b1817c9d-33ae-4963-8d72-dfd1091280f1']
+  args: ['docker', 'build', '-t', 'valentinabrivard/javaimages:1.0.1', '.']
+  args: ['docker', 'push', 'valentinabrivard/javaimages:1.0.1']
   timeout: 10s
