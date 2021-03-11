@@ -7,6 +7,11 @@ steps:
   args: ['echo', 'debut du test maven']
   args: ['mvn', 'test']
   timeout: 100s 
+- name: 'node:latest'
+ args: ['echo', 'debut du build js']
+ args: ['cd', 'jsproject']
+ args: ['npm', 'run', 'test']
+ timeout: 100s 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
@@ -16,3 +21,15 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker login --username=valentinabrivard --password=b1817c9d-33ae-4963-8d72-dfd1091280f1']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['cd', 'jsproject']
+  args: ['-c', 'docker build -t valentinabrivard/javascriptimages:1.0.1 .']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['cd', 'jsproject']
+  args: ['-c', 'docker push valentinabrivard/javascriptimages:1.0.1']
+
