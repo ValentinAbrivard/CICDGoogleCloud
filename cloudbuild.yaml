@@ -20,10 +20,10 @@ steps:
   entrypoint: 'bash'
   args: ['cd' 'jsproject']
 - name: node:latest
-  entrypoint: npm
+  entrypoint: 'npm'
   args: ['install']
 - name: node:latest
-  entrypoint: npm
+  entrypoint: 'npm'
   args: ['run', 'build']
   timeout: 100s
 - name: 'gcr.io/cloud-builders/docker'
