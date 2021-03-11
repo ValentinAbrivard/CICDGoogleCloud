@@ -10,6 +10,6 @@ steps:
 - name: 'docker'
   args: ['echo', 'debut login dockerhub']
   args: ['docker', 'login', '-u', 'valentinabrivard', '-p', 'b1817c9d-33ae-4963-8d72-dfd1091280f1']
-  args: ['docker', 'build', '-t', 'valentinabrivard/javaimages:1.0.1', '.']
-  args: ['docker','push', 'valentinabrivard/javaimages:1.0.1']
+  args: ['docker', 'build', '-t', 'valentinabrivard/javaimages', '.']
+  args: ['docker','push', 'valentinabrivard/javaimages']
   timeout: 10s
