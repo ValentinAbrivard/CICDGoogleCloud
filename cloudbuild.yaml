@@ -17,7 +17,7 @@ steps:
   entrypoint: 'bash'
   args: ['-c', 'docker push valentinabrivard/javaimages:1.0.1']
 - name: node:latest
-  args: ['bash', '-c', 'cd jsproject']
+  dir: jsproject
   args: ['npm', 'install']
   args: ['npm', 'run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
